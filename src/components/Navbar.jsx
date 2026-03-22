@@ -7,13 +7,13 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const { t, i18n } = useTranslation();
+  const playStoreLink = "https://play.google.com/store/apps/details?id=com.pavlo.smart_fridge";
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
     setLangOpen(false);
   };
 
-  // Використовуємо реальні іконки прапорів з flagcdn
   const languages = [
     { code: 'uk', flag: 'https://flagcdn.com/w40/ua.png', name: 'Укр' },
     { code: 'en', flag: 'https://flagcdn.com/w40/gb.png', name: 'Eng' },
@@ -35,12 +35,13 @@ export default function Navbar() {
           Fridgify
         </Link>
 
+        {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-600">
           <Link to="/" className="hover:text-green-600 transition-colors">{t('nav.home')}</Link>
-          <a href="/#how-it-works" className="hover:text-green-600 transition-colors">{t('nav.how')}</a>
+          <a href="/#how-it-works" className="hover:text-green-600 transition-colors">{t('nav.how')}</a >
           <Link to="/privacy" className="hover:text-green-600 transition-colors">{t('nav.privacy')}</Link>
           
-          {/* Перемикач мови */}
+          {/* Language Switcher */}
           <div className="relative">
             <button onClick={() => setLangOpen(!langOpen)} className="flex items-center gap-2 hover:text-green-600 transition bg-gray-50 px-3 py-1.5 rounded-full border border-gray-200">
               <Globe size={18} className="text-gray-400" />
@@ -59,16 +60,23 @@ export default function Navbar() {
             )}
           </div>
 
-          <a href="/#download" className="bg-gray-900 hover:bg-green-600 text-white px-5 py-2.5 rounded-full transition flex items-center gap-2">
+          <a 
+            href={playStoreLink} 
+            target="_blank" 
+            rel="noreferrer" 
+            className="bg-gray-900 hover:bg-green-600 text-white px-5 py-2.5 rounded-full transition flex items-center gap-2 shadow-lg active:scale-95"
+          >
             <Smartphone size={18} /> {t('nav.download')}
           </a>
         </div>
 
+        {/* Mobile Toggle */}
         <button className="md:hidden p-2" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
+      {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-white border-b border-gray-100 absolute w-full shadow-lg">
           <div className="flex flex-col px-4 pt-2 pb-6 space-y-4 text-center text-lg font-medium">
@@ -81,6 +89,7 @@ export default function Navbar() {
             </div>
             <Link to="/" onClick={() => setIsOpen(false)} className="hover:text-green-600">{t('nav.home')}</Link>
             <Link to="/privacy" onClick={() => setIsOpen(false)} className="hover:text-green-600">{t('nav.privacy')}</Link>
+            <a href={playStoreLink} target="_blank" rel="noreferrer" className="bg-green-600 text-white py-3 rounded-xl">{t('nav.download')}</a>
           </div>
         </div>
       )}

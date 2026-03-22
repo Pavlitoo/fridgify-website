@@ -1,4 +1,4 @@
-import { Shield, Mail } from 'lucide-react';
+import { Shield, Mail, Camera, Lock, Eye, Globe } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 export default function PrivacyPolicy() {
@@ -18,60 +18,54 @@ export default function PrivacyPolicy() {
           </div>
         </div>
 
-        <div className="space-y-8 text-gray-700 leading-relaxed">
+        <div className="space-y-10 text-gray-700 leading-relaxed">
           
           <section>
             <p className="text-lg">{t('privacy.intro')}</p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">{t('privacy.t1')}</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <Eye size={24} className="text-green-600" /> {t('privacy.t1')}
+            </h2>
             <p className="mb-4">{t('privacy.p1')}</p>
-            <ul className="list-disc pl-6 space-y-2 text-gray-600">
-              <li><strong>{t('privacy.l1_1')}</strong> {t('privacy.l1_1d')}</li>
-              <li><strong>{t('privacy.l1_2')}</strong> {t('privacy.l1_2d')}</li>
-              <li><strong>{t('privacy.l1_3')}</strong> {t('privacy.l1_3d')}</li>
-            </ul>
+          </section>
+
+          <section className="bg-blue-50 p-6 rounded-2xl border border-blue-100 shadow-sm">
+            <h2 className="text-2xl font-bold text-blue-900 mb-4 flex items-center gap-2">
+              <Camera size={26} /> {t('privacy.t2')}
+            </h2>
+            <p className="text-blue-800">
+              {t('privacy.p2')}
+            </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">{t('privacy.t2')}</h2>
-            <p className="mb-4">{t('privacy.p2')}</p>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <Globe size={24} className="text-green-600" /> {t('privacy.t3')}
+            </h2>
+            <p className="mb-4">{t('privacy.p3')}</p>
             <ul className="list-disc pl-6 space-y-2 text-green-600 font-medium">
-              <li><a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer" className="hover:underline">Google Play Services</a></li>
+              <li><a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer" className="hover:underline">Google Play Services & Firebase</a></li>
+              <li><a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noreferrer" className="hover:underline">Google Gemini AI</a></li>
               <li><a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noreferrer" className="hover:underline">AdMob</a></li>
-              <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noreferrer" className="hover:underline">Google Analytics & Crashlytics</a></li>
-              <li><a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noreferrer" className="hover:underline">OpenAI</a></li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">{t('privacy.t3')}</h2>
-            <p>{t('privacy.p3')}</p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">{t('privacy.t4')}</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <Lock size={24} className="text-green-600" /> {t('privacy.t4')}
+            </h2>
             <p>{t('privacy.p4')}</p>
           </section>
 
-          <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">{t('privacy.t5')}</h2>
-            <p>{t('privacy.p5')}</p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">{t('privacy.t6')}</h2>
-            <p>{t('privacy.p6')}</p>
-          </section>
-
-          <div className="mt-12 p-6 bg-green-50 rounded-2xl border border-green-100">
+          <div className="mt-12 p-8 bg-green-50 rounded-3xl border border-green-100">
             <h2 className="text-xl font-bold text-gray-900 mb-2 flex items-center gap-2">
               <Mail className="text-green-600" size={24} /> {t('privacy.contactTitle')}
             </h2>
             <p className="text-gray-700">
               {t('privacy.contactDesc')} <br/>
-              <a href="mailto:pasalugovij@gmail.com" className="text-green-600 font-bold hover:underline mt-2 inline-block">pasalugovij@gmail.com</a>
+              <a href="mailto:pasalugovij@gmail.com" className="text-green-600 font-bold hover:underline mt-2 inline-block text-lg">pasalugovij@gmail.com</a>
             </p>
           </div>
 
