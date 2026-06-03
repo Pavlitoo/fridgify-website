@@ -44,7 +44,7 @@ export default function Home() {
           <div className="flex-1 relative order-2 md:order-1">
             <div className="bg-green-400/20 absolute -inset-4 rounded-[3rem] blur-2xl"></div>
             <img 
-              src="/scan-preview.png" 
+              src="/scanner.jpg" 
               alt="Fridgify AI Scanner" 
               className="relative rounded-[2.5rem] shadow-2xl border-8 border-gray-900 w-full max-w-[300px] mx-auto"
             />
